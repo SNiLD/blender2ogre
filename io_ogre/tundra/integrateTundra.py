@@ -298,7 +298,7 @@ class _sync_mesh_op(bpy.types.Operator):
 	@classmethod
 	def poll(cls, context):
 		if context.active_object and context.active_object.type in ('MESH','EMPTY') and context.mode != 'EDIT_MESH':
-			if context.active_object.type == 'EMPTY' and context.active_object.dupli_type != 'GROUP': return False
+			if context.active_object.type == 'EMPTY' and context.active_object.instance_type != 'COLLECTION': return False
 			else: return True
 
 	def invoke(self, context, event):
@@ -314,7 +314,7 @@ class _sync_material_op(bpy.types.Operator):
 	@classmethod
 	def poll(cls, context):
 		if context.active_object and context.active_object.type in ('MESH','EMPTY') and context.mode != 'EDIT_MESH':
-			if context.active_object.type == 'EMPTY' and context.active_object.dupli_type != 'GROUP': return False
+			if context.active_object.type == 'EMPTY' and context.active_object.instance_type != 'COLLECTION': return False
 			else: return True
 
 	def invoke(self, context, event):
